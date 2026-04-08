@@ -1,0 +1,126 @@
+<Window x:Class="NutriPlan.Presentation.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:NutriPlan.Presentation.ViewModels"
+        Title="Macro Calculator and Meal Planner" Height="800" Width="850" Background="#F5F5F5">
+    
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Input Section -->
+            <StackPanel Grid.Column="0" Margin="0,0,20,0">
+                <TextBlock Text="Calculation Settings" FontSize="18" FontWeight="Bold" Margin="0,0,0,15"/>
+
+                <TextBlock Text="Weight (kg):" Margin="0,5,0,2"/>
+                <TextBox Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged}" Height="25" VerticalContentAlignment="Center" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Height (cm):" Margin="0,5,0,2"/>
+                <TextBox Text="{Binding Height, UpdateSourceTrigger=PropertyChanged}" Height="25" VerticalContentAlignment="Center" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Age (years):" Margin="0,5,0,2"/>
+                <TextBox Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}" Height="25" VerticalContentAlignment="Center" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Gender:" Margin="0,5,0,2"/>
+                <ComboBox SelectedItem="{Binding SelectedGender}" ItemsSource="{Binding Genders}" Height="25" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Activity Level:" Margin="0,5,0,2"/>
+                <ComboBox SelectedItem="{Binding SelectedActivity}" ItemsSource="{Binding ActivityLevels}" Height="25" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Your Goal:" Margin="0,5,0,2"/>
+                <ComboBox SelectedItem="{Binding SelectedGoal}" ItemsSource="{Binding Goals}" Height="25" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Number of meals (2-5):" Margin="0,5,0,2"/>
+                <ComboBox SelectedItem="{Binding NumberOfMeals}" ItemsSource="{Binding MealCounts}" Height="25" Margin="0,0,0,15"/>
+
+                <Button Content="Calculate Plan" Command="{Binding GenerateCommand}" Height="35" Background="#4CAF50" Foreground="White" FontWeight="Bold" Margin="0,10,0,0"/>
+                
+                <Separator Margin="0,20,0,20"/>
+
+                <!-- Daily Summary Section -->
+                <TextBlock Text="Daily Summary" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                <Border Background="White" Padding="15" CornerRadius="5">
+                    <StackPanel>
+                        <TextBlock Text="{Binding MacroResult.TotalCalories, StringFormat='Daily Energy: {0:F0} kcal'}" FontWeight="Bold" FontSize="14" Foreground="#2196F3"/>
+                        
+                        <Grid Margin="0,10,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Protein:"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MacroResult.ProteinGrams, StringFormat='{}{0:F1} g'}" TextAlignment="Right"/>
+                            
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Fat:"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding MacroResult.FatGrams, StringFormat='{}{0:F1} g'}" TextAlignment="Right"/>
+                            
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Carbs:"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding MacroResult.CarbsGrams, StringFormat='{}{0:F1} g'}" TextAlignment="Right"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+                
+                <TextBlock Text="Calculation Explanation:" Margin="0,15,0,5" FontWeight="Bold"/>
+                <TextBlock Text="{Binding MacroResult.FormulaExplanation}" TextWrapping="Wrap" Foreground="#666" FontSize="11"/>
+            </StackPanel>
+
+            <!-- Meals Breakdown Section -->
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="Meal Breakdown" FontSize="18" FontWeight="Bold" Margin="0,0,0,15"/>
+                
+                <ItemsControl ItemsSource="{Binding Meals}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="White" Margin="0,0,0,10" Padding="15" CornerRadius="8" BorderBrush="#DDD" BorderThickness="1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="{Binding Name}" FontSize="16" FontWeight="Bold" Foreground="#333"/>
+                                        <TextBlock Text="{Binding Calories, StringFormat='{}{0:F0} kcal'}" FontSize="14" Foreground="#4CAF50" Margin="0,5,0,0"/>
+                                    </StackPanel>
+                                    
+                                    <UniformGrid Grid.Column="1" Columns="3" VerticalAlignment="Center">
+                                        <StackPanel HorizontalAlignment="Center">
+                                            <TextBlock Text="Protein" Foreground="#888" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="{Binding Protein, StringFormat='{}{0:F1} g'}" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                        <StackPanel HorizontalAlignment="Center">
+                                            <TextBlock Text="Fat" Foreground="#888" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="{Binding Fat, StringFormat='{}{0:F1} g'}" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                        <StackPanel HorizontalAlignment="Center">
+                                            <TextBlock Text="Carbs" Foreground="#888" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="{Binding Carbs, StringFormat='{}{0:F1} g'}" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </UniformGrid>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                
+                <Border Background="#E3F2FD" Padding="15" CornerRadius="5" Margin="0,10,0,0">
+                    <TextBlock Text="Note: All values represent target macronutrients distributed evenly across your day." 
+                               FontStyle="Italic" Foreground="#1976D2" TextAlignment="Center"/>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>

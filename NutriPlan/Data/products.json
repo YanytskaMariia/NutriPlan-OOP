@@ -1,0 +1,162 @@
+﻿[
+    {
+        "Name": "Chicken Breast",
+        "Category": "Protein",
+        "Calories": 165,
+        "Protein": 31,
+        "Fat": 3.6,
+        "Carbs": 0
+    },
+    {
+        "Name": "Oats",
+        "Category": "Carb",
+        "Calories": 389,
+        "Protein": 17,
+        "Fat": 7,
+        "Carbs": 66
+    },
+    {
+        "Name": "Egg",
+        "Category": "Protein",
+        "Calories": 155,
+        "Protein": 13,
+        "Fat": 11,
+        "Carbs": 1.1
+    },
+    {
+        "Name": "Broccoli",
+        "Category": "Veggie",
+        "Calories": 55,
+        "Protein": 3.7,
+        "Fat": 0.6,
+        "Carbs": 11
+    },
+    {
+        "Name": "Rice",
+        "Category": "Carb",
+        "Calories": 130,
+        "Protein": 2.4,
+        "Fat": 0.2,
+        "Carbs": 28
+    },
+    {
+        "Name": "Salmon",
+        "Category": "Protein",
+        "Calories": 208,
+        "Protein": 20,
+        "Fat": 13,
+        "Carbs": 0
+    },
+    {
+        "Name": "Almonds",
+        "Category": "Fat",
+        "Calories": 576,
+        "Protein": 21,
+        "Fat": 49,
+        "Carbs": 22
+    },
+    {
+        "Name": "Milk",
+        "Category": "Dairy",
+        "Calories": 42,
+        "Protein": 3.4,
+        "Fat": 1,
+        "Carbs": 5
+    },
+    {
+        "Name": "Banana",
+        "Category": "Fruit",
+        "Calories": 89,
+        "Protein": 1.1,
+        "Fat": 0.3,
+        "Carbs": 23
+    },
+    {
+        "Name": "Sweet Potato",
+        "Category": "Carb",
+        "Calories": 86,
+        "Protein": 1.6,
+        "Fat": 0.1,
+        "Carbs": 20
+    },
+    {
+        "Name": "Yogurt",
+        "Category": "Dairy",
+        "Calories": 59,
+        "Protein": 10,
+        "Fat": 0.4,
+        "Carbs": 3.6
+    },
+    {
+        "Name": "Beef",
+        "Category": "Protein",
+        "Calories": 250,
+        "Protein": 26,
+        "Fat": 15,
+        "Carbs": 0
+    },
+    {
+        "Name": "Spinach",
+        "Category": "Veggie",
+        "Calories": 23,
+        "Protein": 2.9,
+        "Fat": 0.4,
+        "Carbs": 3.6
+    },
+    {
+        "Name": "Quinoa",
+        "Category": "Carb",
+        "Calories": 120,
+        "Protein": 4.4,
+        "Fat": 1.9,
+        "Carbs": 21
+    },
+    {
+        "Name": "Peanut Butter",
+        "Category": "Fat",
+        "Calories": 588,
+        "Protein": 25,
+        "Fat": 50,
+        "Carbs": 20
+    },
+    {
+        "Name": "Apple",
+        "Category": "Fruit",
+        "Calories": 52,
+        "Protein": 0.3,
+        "Fat": 0.2,
+        "Carbs": 14
+    },
+    {
+        "Name": "Cheese",
+        "Category": "Dairy",
+        "Calories": 402,
+        "Protein": 25,
+        "Fat": 33,
+        "Carbs": 1.3
+    },
+    {
+        "Name": "Turkey",
+        "Category": "Protein",
+        "Calories": 189,
+        "Protein": 29,
+        "Fat": 7,
+        "Carbs": 0
+    },
+    {
+        "Name": "Cottage Cheese",
+        "Category": "Dairy",
+        "Calories": 98,
+        "Protein": 11,
+        "Fat": 4.3,
+        "Carbs": 3.4
+    },
+    {
+        "Name": "Carrot",
+        "Category": "Veggie",
+        "Calories": 41,
+        "Protein": 0.9,
+        "Fat": 0.2,
+        "Carbs": 10
+    }
+]
