@@ -120,6 +120,32 @@
                     <TextBlock Text="Note: All values represent target macronutrients distributed evenly across your day." 
                                FontStyle="Italic" Foreground="#1976D2" TextAlignment="Center"/>
                 </Border>
+
+                <!-- Products per Meal -->
+                <TextBlock Text="Products per Meal" FontSize="16" FontWeight="Bold" Margin="0,20,0,10"/>
+
+                <ItemsControl ItemsSource="{Binding MealProducts}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="White" Margin="0,0,0,10" Padding="10" CornerRadius="6" BorderBrush="#DDD" BorderThickness="1">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Key}" FontSize="14" FontWeight="Bold"/>
+                                    <ItemsControl ItemsSource="{Binding Value}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                                                    <TextBlock Text="{Binding Name}" FontWeight="SemiBold"/>
+                                                    <TextBlock Text=" - "/>
+                                                    <TextBlock Text="{Binding Calories, StringFormat='{}{0:F0} kcal'}" Foreground="#4CAF50"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </StackPanel>
         </Grid>
     </ScrollViewer>

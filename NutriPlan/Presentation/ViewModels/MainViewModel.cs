@@ -6,6 +6,10 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using System.Linq;
+using NutriPlan.Infrastructure.Repositories;
+using NutriPlan.Infrastructure.Interfaces;
+using System.IO;
+using System.Diagnostics;
 
 namespace NutriPlan.Presentation.ViewModels
 {
@@ -19,6 +23,13 @@ namespace NutriPlan.Presentation.ViewModels
         private readonly CalorieCalculatorService _calorieCalculator = new CalorieCalculatorService();
         private readonly MacroCalculatorService _macroCalculator = new MacroCalculatorService();
         private readonly MealDistributionService _mealDistributor = new MealDistributionService();
+
+        // Repository
+        private IProductRepository _productRepository;
+
+        // Loaded products
+        private List<Product> _availableProducts = new List<Product>();
+        public IReadOnlyList<Product> AvailableProducts => _availableProducts.AsReadOnly();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -87,6 +98,13 @@ namespace NutriPlan.Presentation.ViewModels
             set { _meals = value; OnPropertyChanged(nameof(Meals)); }
         }
 
+        private Dictionary<string, List<Product>> _mealProducts;
+        public Dictionary<string, List<Product>> MealProducts
+        {
+            get => _mealProducts;
+            set { _mealProducts = value; OnPropertyChanged(nameof(MealProducts)); }
+        }
+
         // Available enums for UI binding
         public IEnumerable<ActivityLevel> ActivityLevels => Enum.GetValues(typeof(ActivityLevel)).Cast<ActivityLevel>();
         public IEnumerable<Gender> Genders => Enum.GetValues(typeof(Gender)).Cast<Gender>();
@@ -100,9 +118,54 @@ namespace NutriPlan.Presentation.ViewModels
         public MainViewModel()
         {
             GenerateCommand = new RelayCommand(_ => Generate());
-            
+
+            // Load products from JSON
+            try
+            {
+                var jsonPath = ResolveProductsJsonPath();
+                var repo = JsonProductRepository.GetInstance(jsonPath);
+                _productRepository = repo;
+                _availableProducts = repo.GetAllProducts() ?? new List<Product>();
+
+                Debug.WriteLine($"MainViewModel: products.json path='{jsonPath}'");
+                Debug.WriteLine($"MainViewModel: file exists='{File.Exists(jsonPath)}'");
+                Debug.WriteLine($"MainViewModel: loaded products count={_availableProducts.Count}");
+            }
+            catch (Exception ex)
+            {
+                _availableProducts = new List<Product>();
+                Debug.WriteLine($"MainViewModel: error loading products.json: {ex.Message}");
+            }
+
             // Initial generation
             Generate();
+        }
+
+        /// <summary>
+        /// Attempts to resolve the path to Data/products.json from several likely locations.
+        /// </summary>
+        private string ResolveProductsJsonPath()
+        {
+            // Try application base directory relative paths and project-relative Data folder
+            var candidates = new[]
+            {
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "products.json"),
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data", "products.json"),
+                Path.Combine(Environment.CurrentDirectory, "Data", "products.json"),
+                Path.Combine(Directory.GetCurrentDirectory(), "Data", "products.json"),
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "products.json"),
+                "Data\\products.json",
+                "products.json"
+            };
+
+            foreach (var c in candidates)
+            {
+                var full = Path.GetFullPath(c);
+                if (File.Exists(full)) return full;
+            }
+
+            // Fallback: return relative path as given (may not exist)
+            return "Data\\products.json";
         }
 
         /// <summary>
@@ -126,8 +189,10 @@ namespace NutriPlan.Presentation.ViewModels
             // 4. Calculate daily macro distribution (B/F/C)
             MacroResult = _macroCalculator.CalculateMacros(Weight, targetCalories, SelectedGoal);
 
-            // 5. Evenly distribute macros across the selected number of meals
-            Meals = _mealDistributor.DistributeMeals(MacroResult, NumberOfMeals);
+            // 5-6. Generate meals and products
+            Dictionary<string, List<Product>> mealProducts;
+            Meals = _mealDistributor.GenerateMealPlan(_productRepository, MacroResult, NumberOfMeals, out mealProducts);
+            MealProducts = mealProducts;
         }
 
         protected void OnPropertyChanged(string propertyName)

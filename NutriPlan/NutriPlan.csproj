@@ -73,6 +73,8 @@
     <Compile Include="Application\Services\CalorieCalculatorService.cs" />
     <Compile Include="Application\Services\MacroCalculatorService.cs" />
     <Compile Include="Application\Services\MealDistributionService.cs" />
+    <Compile Include="Domain\MealWithProducts_Included.cs" />
+    <Compile Include="Domain\ProductShim.cs" />
     <!-- Infrastructure (Retained for possible future use or project structure consistency) -->
     <Compile Include="Infrastructure\Interfaces\IProductRepository.cs" />
     <Compile Include="Infrastructure\Repositories\JsonProductRepository.cs" />
@@ -105,7 +107,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Data\products.json" />
+    <Content Include="Data\products.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
