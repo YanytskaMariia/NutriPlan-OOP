@@ -82,8 +82,8 @@
     <Compile Include="Infrastructure\Interfaces\IProductRepository.cs" />
     <Compile Include="Infrastructure\Repositories\JsonProductRepository.cs" />
     <Compile Include="Tests\MealGenerationTests.cs" />
-    <Compile Include="Tests\MSTestStubs.cs" />
     <Compile Include="Tools\BenchmarkRunner.cs" />
+    <Compile Include="Tools\BenchmarkSuite.cs" />
     <!-- Presentation -->
     <Page Include="Presentation\Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
