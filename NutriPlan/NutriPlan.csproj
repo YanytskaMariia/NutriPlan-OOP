@@ -63,6 +63,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Application\IMealGenerationStrategy.cs" />
+    <Compile Include="Application\Services\GreedyMealGenerationStrategy.cs" />
     <Compile Include="Application\Services\ParallelMealGenerationService.cs" />
     <!-- Domain -->
     <Compile Include="Domain\ActivityLevel.cs" />
@@ -79,6 +81,8 @@
     <!-- Infrastructure (Retained for possible future use or project structure consistency) -->
     <Compile Include="Infrastructure\Interfaces\IProductRepository.cs" />
     <Compile Include="Infrastructure\Repositories\JsonProductRepository.cs" />
+    <Compile Include="Tests\MealGenerationTests.cs" />
+    <Compile Include="Tests\MSTestStubs.cs" />
     <Compile Include="Tools\BenchmarkRunner.cs" />
     <!-- Presentation -->
     <Page Include="Presentation\Views\MainWindow.xaml">
@@ -117,6 +121,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Tests\NutriPlan.Tests.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

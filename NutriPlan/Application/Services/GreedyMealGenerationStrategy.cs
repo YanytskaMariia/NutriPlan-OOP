@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NutriPlan.Domain;
-using NutriPlan.Application.Interfaces;
 
 namespace NutriPlan.Application.Strategies
 {
@@ -28,25 +27,25 @@ namespace NutriPlan.Application.Strategies
             double currentFat = 0;
             double currentCarbs = 0;
 
+            if (availableProducts == null || availableProducts.Count == 0)
+                return selectedProducts;
+
             // Shuffle products for variety
             var shuffled = availableProducts.OrderBy(x => _random.Next()).ToList();
 
             // Greedy selection: keep adding products until targets are approached
             foreach (var product in shuffled)
             {
-                // Check if adding this product would exceed targets by more than 20%
                 double projectedCalories = currentCalories + product.Calories;
                 double projectedProtein = currentProtein + product.Protein;
                 double projectedFat = currentFat + product.Fat;
                 double projectedCarbs = currentCarbs + product.Carbs;
 
-                // Stop if we've reached most of the calorie target (80%+)
                 if (currentCalories >= calorieTarget * 0.8)
                 {
                     break;
                 }
 
-                // Add product if it doesn't massively overshoot targets
                 if (projectedCalories <= calorieTarget * 1.3)
                 {
                     selectedProducts.Add(product);
