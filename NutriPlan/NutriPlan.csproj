@@ -79,6 +79,7 @@
     <!-- Infrastructure (Retained for possible future use or project structure consistency) -->
     <Compile Include="Infrastructure\Interfaces\IProductRepository.cs" />
     <Compile Include="Infrastructure\Repositories\JsonProductRepository.cs" />
+    <Compile Include="Tools\BenchmarkRunner.cs" />
     <!-- Presentation -->
     <Page Include="Presentation\Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
