@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using NutriPlan.Domain;
 
-namespace NutriPlan.Application.Services
+namespace NutriPlan.Application.Interfaces
 {
     /// <summary>
     /// Strategy interface for selecting products to fill macro targets

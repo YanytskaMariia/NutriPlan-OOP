@@ -24,7 +24,7 @@ namespace NutriPlan.Presentation.ViewModels
         private readonly MacroCalculatorService _macroCalculator = new MacroCalculatorService();
         private readonly MealDistributionService _mealDistributor = new MealDistributionService();
 
-        // Repository
+        // Repository (can be injected)
         private IProductRepository _productRepository;
 
         // Loaded products
@@ -115,20 +115,28 @@ namespace NutriPlan.Presentation.ViewModels
 
         public ICommand GenerateCommand { get; }
 
-        public MainViewModel()
+        public MainViewModel() : this(null)
         {
+        }
+
+        // Allow repository injection for testability
+        public MainViewModel(IProductRepository productRepository)
+        {
+            _productRepository = productRepository;
+
             GenerateCommand = new RelayCommand(_ => Generate());
 
-            // Load products from JSON
+            // Load products from JSON if repository not injected
             try
             {
-                var jsonPath = ResolveProductsJsonPath();
-                var repo = JsonProductRepository.GetInstance(jsonPath);
-                _productRepository = repo;
-                _availableProducts = repo.GetAllProducts() ?? new List<Product>();
+                if (_productRepository == null)
+                {
+                    var jsonPath = ResolveProductsJsonPath();
+                    _productRepository = new JsonProductRepository(jsonPath);
+                }
 
-                Debug.WriteLine($"MainViewModel: products.json path='{jsonPath}'");
-                Debug.WriteLine($"MainViewModel: file exists='{File.Exists(jsonPath)}'");
+                _availableProducts = _productRepository.GetAllProducts() ?? new List<Product>();
+
                 Debug.WriteLine($"MainViewModel: loaded products count={_availableProducts.Count}");
             }
             catch (Exception ex)

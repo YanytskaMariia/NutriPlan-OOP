@@ -34,7 +34,7 @@ namespace NutriPlan
             {
                 // Prepare repo and services
                 var jsonPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "products.json");
-                var repo = JsonProductRepository.GetInstance(jsonPath);
+                var repo = new JsonProductRepository(jsonPath);
 
                 var macros = new Domain.MacroResult { TotalCalories = 2000, ProteinGrams = 150, FatGrams = 70, CarbsGrams = 250 };
                 int mealCount = 3;
