@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Application\Services\ParallelMealGenerationService.cs" />
     <!-- Domain -->
     <Compile Include="Domain\ActivityLevel.cs" />
     <Compile Include="Domain\Gender.cs" />
