@@ -1,0 +1,17 @@
+var searchData=
+[
+  ['calculateactualtotals_0',['CalculateActualTotals',['../class_nutri_plan_1_1_domain_1_1_meal_with_products.html#a9fc46bd3d4cc0e54e495720b5fabca93',1,'NutriPlan.Domain.MealWithProducts.CalculateActualTotals()'],['../class_nutri_plan_1_1_domain_1_1_meal_with_products.html#a9fc46bd3d4cc0e54e495720b5fabca93',1,'NutriPlan.Domain.MealWithProducts.CalculateActualTotals()']]],
+  ['calculatebmr_1',['CalculateBmr',['../class_nutri_plan_1_1_application_1_1_services_1_1_calorie_calculator_service.html#addfecaede078114106c209981f167f2c',1,'NutriPlan::Application::Services::CalorieCalculatorService']]],
+  ['calculatemacros_2',['CalculateMacros',['../class_nutri_plan_1_1_application_1_1_services_1_1_macro_calculator_service.html#a055dd42715e820435d26835f0767e288',1,'NutriPlan::Application::Services::MacroCalculatorService']]],
+  ['calculatetargetcalories_3',['CalculateTargetCalories',['../class_nutri_plan_1_1_application_1_1_services_1_1_calorie_calculator_service.html#ac5d40ce8b1c1700895c1cd98cb9a376b',1,'NutriPlan::Application::Services::CalorieCalculatorService']]],
+  ['calculatetdee_4',['CalculateTdee',['../class_nutri_plan_1_1_application_1_1_services_1_1_calorie_calculator_service.html#af8181425d101ce5960bbc269aeaf4223',1,'NutriPlan::Application::Services::CalorieCalculatorService']]],
+  ['caloriecalculatorservice_5',['CalorieCalculatorService',['../class_nutri_plan_1_1_application_1_1_services_1_1_calorie_calculator_service.html',1,'NutriPlan::Application::Services']]],
+  ['caloriecalculatorservice_2ecs_6',['CalorieCalculatorService.cs',['../_calorie_calculator_service_8cs.html',1,'']]],
+  ['calories_7',['Calories',['../class_nutri_plan_1_1_domain_1_1_meal.html#a8157a18e208aaaea2f5ab269eb6e861e',1,'NutriPlan.Domain.Meal.Calories'],['../class_nutri_plan_1_1_domain_1_1_meal_product.html#a0ca5f513d614ac30a15c7891443cd505',1,'NutriPlan.Domain.MealProduct.Calories'],['../class_nutri_plan_1_1_domain_1_1_meal_with_products.html#aa454d161bcee790ecd96ca2529af89a6',1,'NutriPlan.Domain.MealWithProducts.Calories'],['../class_nutri_plan_1_1_domain_1_1_product.html#a69587bdecb944f6df526c6a9ce3dc84c',1,'NutriPlan.Domain.Product.Calories']]],
+  ['canexecute_8',['CanExecute',['../class_nutri_plan_1_1_presentation_1_1_view_models_1_1_relay_command.html#a1d067ab1ec93105a6fa4465e0e97d429',1,'NutriPlan::Presentation::ViewModels::RelayCommand']]],
+  ['canexecutechanged_9',['CanExecuteChanged',['../class_nutri_plan_1_1_presentation_1_1_view_models_1_1_relay_command.html#ab71d75a11f7793d8cbfab76927a52e02',1,'NutriPlan::Presentation::ViewModels::RelayCommand']]],
+  ['carbs_10',['Carbs',['../class_nutri_plan_1_1_domain_1_1_meal.html#aa89149e5529e7070932646ccfb7aa718',1,'NutriPlan.Domain.Meal.Carbs'],['../class_nutri_plan_1_1_domain_1_1_meal_product.html#aea092388e113fcb7d2709e4d06098921',1,'NutriPlan.Domain.MealProduct.Carbs'],['../class_nutri_plan_1_1_domain_1_1_product.html#a1639cf162848070f659aac23479b5193',1,'NutriPlan.Domain.Product.Carbs']]],
+  ['carbsgrams_11',['CarbsGrams',['../class_nutri_plan_1_1_domain_1_1_macro_result.html#ac60eb87d159a54c7d65ad318263b7eca',1,'NutriPlan::Domain::MacroResult']]],
+  ['carbskcal_12',['CarbsKcal',['../class_nutri_plan_1_1_domain_1_1_macro_result.html#a76600c4e6573046e6a61b366d9bb2088',1,'NutriPlan::Domain::MacroResult']]],
+  ['category_13',['Category',['../class_nutri_plan_1_1_domain_1_1_product.html#a2652d4945a559663c833015ba75bcd85',1,'NutriPlan::Domain::Product']]]
+];

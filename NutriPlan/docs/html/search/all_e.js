@@ -1,0 +1,13 @@
+var searchData=
+[
+  ['parallelmealgenerationservice_0',['ParallelMealGenerationService',['../class_nutri_plan_1_1_application_1_1_services_1_1_parallel_meal_generation_service.html',1,'NutriPlan::Application::Services']]],
+  ['parallelmealgenerationservice_2ecs_1',['ParallelMealGenerationService.cs',['../_parallel_meal_generation_service_8cs.html',1,'']]],
+  ['product_2',['Product',['../class_nutri_plan_1_1_domain_1_1_product.html',1,'NutriPlan.Domain.Product'],['../class_nutri_plan_1_1_domain_1_1_meal_product.html#a181fea72ecf37b0b50521bb5d0ddc2e8',1,'NutriPlan.Domain.MealProduct.Product'],['../class_nutri_plan_1_1_domain_1_1_product.html#ad93ac4ec6b537126d2257bf36b439c10',1,'NutriPlan.Domain.Product.Product()'],['../class_nutri_plan_1_1_domain_1_1_product.html#a18875b66513eecb158cec1f0ee81e458',1,'NutriPlan.Domain.Product.Product(string name, string category, double calories, double protein, double fat, double carbs)'],['../class_nutri_plan_1_1_domain_1_1_product.html#ad93ac4ec6b537126d2257bf36b439c10',1,'NutriPlan.Domain.Product.Product()'],['../class_nutri_plan_1_1_domain_1_1_product.html#a18875b66513eecb158cec1f0ee81e458',1,'NutriPlan.Domain.Product.Product(string name, string category, double calories, double protein, double fat, double carbs)']]],
+  ['product_2ecs_3',['Product.cs',['../_product_8cs.html',1,'']]],
+  ['products_4',['Products',['../class_nutri_plan_1_1_domain_1_1_meal_with_products.html#a8a5ab615e9f319246b596a59e7dbb620',1,'NutriPlan::Domain::MealWithProducts']]],
+  ['productshim_2ecs_5',['ProductShim.cs',['../_product_shim_8cs.html',1,'']]],
+  ['propertychanged_6',['PropertyChanged',['../class_nutri_plan_1_1_presentation_1_1_view_models_1_1_main_view_model.html#a2fd3acb3374f436f3d7f1dea3155bdca',1,'NutriPlan::Presentation::ViewModels::MainViewModel']]],
+  ['protein_7',['Protein',['../class_nutri_plan_1_1_domain_1_1_meal.html#a82d07df0d12425d03786cb35997a0d79',1,'NutriPlan.Domain.Meal.Protein'],['../class_nutri_plan_1_1_domain_1_1_meal_product.html#ac61c0561efcf5529ac25a7ae5a3c7414',1,'NutriPlan.Domain.MealProduct.Protein'],['../class_nutri_plan_1_1_domain_1_1_meal_with_products.html#a041c96c99f3ce9b831880c138fcd318d',1,'NutriPlan.Domain.MealWithProducts.Protein'],['../class_nutri_plan_1_1_domain_1_1_product.html#a1c3d6760bdd0691a52f5f292d8ac7648',1,'NutriPlan.Domain.Product.Protein']]],
+  ['proteingrams_8',['ProteinGrams',['../class_nutri_plan_1_1_domain_1_1_macro_result.html#ac5b3559a5e951ce03c684108c721fbd2',1,'NutriPlan::Domain::MacroResult']]],
+  ['proteinkcal_9',['ProteinKcal',['../class_nutri_plan_1_1_domain_1_1_macro_result.html#a77ca055f4b2ac19e83eb2617802c84ea',1,'NutriPlan::Domain::MacroResult']]]
+];
